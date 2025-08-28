@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
 
-// NEW: Schema for individual analysis settings
+// Schema for an individual, named analysis
 const analysisSchema = mongoose.Schema({
+  name: { type: String, required: true }, // The custom name for the analysis
   chartType: { type: String, required: true },
   xAxis: { type: String, required: true },
   yAxis: { type: String, required: true },
-});
+}, { timestamps: true });
 
 const fileSchema = mongoose.Schema(
   {
@@ -14,19 +15,16 @@ const fileSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    fileName: {
-      type: String,
-      required: true,
-    },
+    fileName: { type: String, required: true },
     data: [ { type: Object } ],
     headers: [ { type: String } ],
-    // NEW: Array to store analysis history
-    analyses: [analysisSchema],
+    // Renamed to 'savedAnalyses' for clarity
+    savedAnalyses: [analysisSchema], 
   },
   {
     timestamps: true,
   }
 );
 
-const File = mongoose.model('File', fileSchema);
+const File = mongoose.models.File || mongoose.model('File', fileSchema);
 export default File;
