@@ -1,8 +1,7 @@
-// File: client/src/pages/LoginPage.jsx
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Logo from '../assets/Logo'; // Import the new Logo component
+import Logo from '../assets/Logo';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -27,7 +26,7 @@ const LoginPage = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-50 font-sans">
       <div className="w-full max-w-md p-8 pt-12 space-y-6 bg-white rounded-xl shadow-lg">
         <div className="text-center">
-            <Logo className="mx-auto h-9 w-auto text-indigo-600"/>
+            <Logo className="mx-auto h-10 w-auto text-indigo-600"/>
             <h2 className="mt-6 text-3xl font-bold text-gray-900">
                 Excel Analytics
             </h2>
@@ -61,6 +60,16 @@ const LoginPage = () => {
               placeholder="demo123 or admin123"
             />
           </div>
+          
+          {/* This is the new section that adds the link */}
+          <div className="flex items-center justify-end">
+            <div className="text-sm">
+              <Link to="/forgot-password" className="font-medium text-indigo-600 hover:underline">
+                Forgot your password?
+              </Link>
+            </div>
+          </div>
+
           <div>
             <button 
               type="submit" 
