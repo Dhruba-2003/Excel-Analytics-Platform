@@ -52,9 +52,7 @@ export const loginUser = async (req, res) => {
   }
 };
 
-// NEW: Function to get the logged-in user's profile
 export const getUserProfile = async (req, res) => {
-  // req.user is available because of the 'protect' middleware
   const user = await User.findById(req.user._id);
 
   if (user) {

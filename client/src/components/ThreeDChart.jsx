@@ -1,4 +1,3 @@
-// File: client/src/components/ThreeDChart.jsx
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Text } from '@react-three/drei';
 
@@ -49,6 +48,4 @@ const ThreeDChart = ({ chartData, xAxisLabel, yAxisLabel }) => {
     </Canvas>
   );
 };
-
-// THIS IS THE FIX
 export default ThreeDChart;

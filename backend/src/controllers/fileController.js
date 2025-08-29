@@ -50,7 +50,6 @@ export const getFileById = async (req, res) => {
   }
 };
 
-// This function now handles saving named analyses
 export const saveAnalysis = async (req, res) => {
   const { name, chartType, xAxis, yAxis } = req.body;
   if (!name) {

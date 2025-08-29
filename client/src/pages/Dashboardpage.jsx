@@ -19,10 +19,8 @@ const DashboardPage = () => {
   const [chartType, setChartType] = useState('2D');
   const [analysisName, setAnalysisName] = useState('');
   
-  const { fileId } = useParams(); // Get the fileId from the URL
+  const { fileId } = useParams();
   const chartRef = useRef(null);
-
-  // This useEffect will run if a fileId is present in the URL
   useEffect(() => {
     const fetchFileForAnalysis = async () => {
       if (fileId) {
@@ -132,7 +130,6 @@ const DashboardPage = () => {
         <main className="flex-1 overflow-y-auto bg-base-100 p-8">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-3xl font-semibold text-text-primary">Upload and Analyze Your Excel File</h1>
-            {/* The upload section will only show if a file is NOT already loaded from history */}
             {!fileId && !uploadedFile && (
                 <div className="mt-6 p-6 bg-content-bg rounded-xl shadow-md">
                    <h2 className="text-xl font-semibold mb-4 text-text-primary">Upload New File</h2>

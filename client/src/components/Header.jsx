@@ -13,7 +13,6 @@ const Header = () => {
 
     return (
       <header className="flex items-center justify-between p-4 bg-content-bg border-b shadow-sm z-10">
-        {/* The h1 is now the main element on the left */}
         <h1 className="text-xl font-semibold text-text-primary">Dashboard</h1>
         
         {userInfo ? (

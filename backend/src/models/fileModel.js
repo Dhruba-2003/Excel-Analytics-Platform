@@ -1,8 +1,7 @@
 import mongoose from 'mongoose';
 
-// Schema for an individual, named analysis
 const analysisSchema = mongoose.Schema({
-  name: { type: String, required: true }, // The custom name for the analysis
+  name: { type: String, required: true },
   chartType: { type: String, required: true },
   xAxis: { type: String, required: true },
   yAxis: { type: String, required: true },
@@ -18,7 +17,6 @@ const fileSchema = mongoose.Schema(
     fileName: { type: String, required: true },
     data: [ { type: Object } ],
     headers: [ { type: String } ],
-    // Renamed to 'savedAnalyses' for clarity
     savedAnalyses: [analysisSchema], 
   },
   {

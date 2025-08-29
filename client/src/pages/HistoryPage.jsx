@@ -70,7 +70,6 @@ const HistoryPage = () => {
               <div className="mt-8 space-y-6">
                 {history.length > 0 ? (
                   history.map(file => (
-                    // The Link now points to the dashboard with the specific file ID
                     <Link to={`/dashboard/${file._id}`} key={file._id} className="block bg-content-bg rounded-xl shadow-md p-4 hover:shadow-lg transition">
                       <div className="flex items-center space-x-4">
                         <FiFileText className="h-6 w-6 text-primary"/>
