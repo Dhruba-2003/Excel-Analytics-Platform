@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import axios from '../api/axios';
+import { useParams, Link } from 'react-router-dom'; // Import Link
+import axios from 'axios';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import Sidebar from '../components/Sidebar';
