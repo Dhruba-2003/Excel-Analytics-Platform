@@ -5,7 +5,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
-import Chart from '../components/Chart';
+import Chart from '../components/chart';
 import ThreeDChart from '../components/ThreeDChart';
 
 const DashboardPage = () => {
