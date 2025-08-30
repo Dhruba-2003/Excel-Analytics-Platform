@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axios';
 
 const RegisterPage = () => {
   const [name, setName] = useState('');
@@ -17,14 +17,11 @@ const RegisterPage = () => {
 
     try {
       const { data } = await axios.post('/api/users/register', { name, email, password });
-      
-      // --- THIS IS THE KEY CHANGE ---
-      // 1. Immediately save the user's info and token to localStorage
+    
       localStorage.setItem('userInfo', JSON.stringify(data));
       
       console.log('User registered and logged in successfully:', data);
-      
-      // 2. Navigate directly to the dashboard instead of the login page
+    
       navigate('/');
 
     } catch (err) {
