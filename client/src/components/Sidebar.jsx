@@ -1,10 +1,19 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { RxDashboard } from 'react-icons/rx';
-import { FiUploadCloud, FiLogOut } from 'react-icons/fi';
+import { FiUploadCloud, FiLogOut, FiUserCheck } from 'react-icons/fi';
 
 const Sidebar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useState(null);
+
+  useEffect(() => {
+    const storedUserInfo = localStorage.getItem('userInfo');
+    if (storedUserInfo) {
+        setUserInfo(JSON.parse(storedUserInfo));
+    }
+  }, []);
 
   const logoutHandler = () => {
     localStorage.removeItem('userInfo');
@@ -19,7 +28,7 @@ const Sidebar = () => {
   return (
     <aside className="flex-shrink-0 w-64 h-full bg-blue-800 text-white flex flex-col">
       <div className="p-6 text-center border-b border-blue-900">
-        <h2 className="text-2xl font-semibold">Excel Analytics</h2>
+        <h2 className="text-2xl font-semibold">Excel Sathi</h2>
       </div>
       <nav className="mt-6 flex-1">
         {navLinks.map((link) => (
@@ -32,6 +41,18 @@ const Sidebar = () => {
             {link.name}
           </Link>
         ))}
+
+        {/* This link will only be visible if the user is an admin */}
+        {userInfo && userInfo.isAdmin && (
+            <Link 
+                to="/admin"
+                className={`flex items-center px-6 py-4 text-blue-100 hover:bg-blue-700 hover:text-white transition duration-150 ${location.pathname === '/admin' ? 'bg-blue-900 text-white' : ''}`}
+            >
+                <span className="mr-3 text-lg"><FiUserCheck /></span>
+                Admin Panel
+            </Link>
+        )}
+
         <button 
           onClick={logoutHandler} 
           className="w-full flex items-center px-6 py-4 text-blue-100 hover:bg-blue-700 hover:text-white transition duration-150 text-left"

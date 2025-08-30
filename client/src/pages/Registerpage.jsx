@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
+import { FiEye, FiEyeOff } from 'react-icons/fi'; // Import eye icons
 
 const RegisterPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // New state for password visibility
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -17,11 +19,11 @@ const RegisterPage = () => {
 
     try {
       const { data } = await axios.post('/api/users/register', { name, email, password });
-    
+      
       localStorage.setItem('userInfo', JSON.stringify(data));
       
       console.log('User registered and logged in successfully:', data);
-    
+      
       navigate('/');
 
     } catch (err) {
@@ -63,16 +65,26 @@ const RegisterPage = () => {
               disabled={loading}
             />
           </div>
+          {/* UPDATED: Password input with visibility toggle */}
           <div>
             <label className="block text-sm font-medium text-text-primary">Password</label>
-            <input 
-              type="password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
-              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" 
-              required 
-              disabled={loading}
-            />
+            <div className="relative mt-1">
+              <input 
+                type={showPassword ? 'text' : 'password'} // Change type based on state
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" 
+                required 
+                disabled={loading}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500"
+              >
+                {showPassword ? <FiEyeOff /> : <FiEye />}
+              </button>
+            </div>
           </div>
           <div>
             <button 
