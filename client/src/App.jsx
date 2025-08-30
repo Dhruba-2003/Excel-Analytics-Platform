@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import DashboardPage from './pages/DashboardPage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+import Dashboardpage from './pages/dashboardpage';
+import Loginpage from './pages/loginpage';
+import Registerpage from './pages/registerpage';
 import AdminPage from './pages/AdminPage';
 import HistoryPage from './pages/HistoryPage';
 import ProfilePage from './pages/ProfilePage';
@@ -11,10 +11,10 @@ import ResetPasswordPage from './pages/ResetPasswordPage';
 function App() {
   return (
     <Routes>
-      <Route path="/dashboard/:fileId" element={<DashboardPage />} />
-      <Route path="/" element={<DashboardPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/dashboard/:fileId" element={<Dashboardpage />} />
+      <Route path="/" element={<Dashboardpage />} />
+      <Route path="/login" element={<Loginpage />} />
+      <Route path="/register" element={<Registerpage />} />
       <Route path="/admin" element={<AdminPage />} />
       <Route path="/history" element={<HistoryPage />} />
       <Route path="/profile" element={<ProfilePage />} />
