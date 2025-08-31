@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^2.2.5",
     "axios": "^1.7.2",
     "chart.js": "^4.4.3",
+    "firebase": "^10.12.2",
     "hls.js": "^1.6.11",
     "html2canvas": "^1.4.1",
     "jspdf": "^3.0.2",
