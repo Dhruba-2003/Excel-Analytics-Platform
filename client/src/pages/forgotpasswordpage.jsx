@@ -36,8 +36,8 @@ const ForgotPasswordPage = () => {
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                        <label className="block text-sm font-medium text-text-primary">Email Address</label>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md" required disabled={loading}/>
+                        <label for="email" className="block text-sm font-medium text-text-primary">Email Address</label>
+                        <input id="email" name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md" required disabled={loading}/>
                     </div>
                     <div>
                         <button type="submit" className="w-full flex justify-center py-2 px-4 text-sm font-medium text-white bg-primary hover:bg-primary-hover rounded-md" disabled={loading}>
