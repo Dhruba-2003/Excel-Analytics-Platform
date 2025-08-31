@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import DashboardPage from './pages/dashboardpage';
-import LoginPage from './pages/loginpage';
-import RegisterPage from './pages/registerpage';
+import DashboardPage from './pages/DashboardPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import AdminPage from './pages/AdminPage';
 import HistoryPage from './pages/HistoryPage';
 import ProfilePage from './pages/ProfilePage';
-import UserEditPage from './pages/userEditpage';
+import UserEditPage from './pages/UserEditPage';
 
 function App() {
   return (
