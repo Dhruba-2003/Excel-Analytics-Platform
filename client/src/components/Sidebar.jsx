@@ -41,7 +41,7 @@ const Sidebar = () => {
             {link.name}
           </Link>
         ))}
-        {userInfo && userInfo.isAdmin && (
+        {userInfo && (
             <Link
                 to="/admin"
                 className={`flex items-center px-6 py-4 text-blue-100 hover:bg-blue-700 hover:text-white transition duration-150 ${location.pathname === '/admin' ? 'bg-blue-900 text-white' : ''}`}
