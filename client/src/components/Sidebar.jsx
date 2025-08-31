@@ -32,19 +32,17 @@ const Sidebar = () => {
       </div>
       <nav className="mt-6 flex-1">
         {navLinks.map((link) => (
-          <Link 
+          <Link
             key={link.name}
-            to={link.path} 
+            to={link.path}
             className={`flex items-center px-6 py-4 text-blue-100 hover:bg-blue-700 hover:text-white transition duration-150 ${location.pathname === link.path ? 'bg-blue-900 text-white' : ''}`}
           >
             <span className="mr-3 text-lg">{link.icon}</span>
             {link.name}
           </Link>
         ))}
-
-        {/* This link will only be visible if the user is an admin */}
         {userInfo && userInfo.isAdmin && (
-            <Link 
+            <Link
                 to="/admin"
                 className={`flex items-center px-6 py-4 text-blue-100 hover:bg-blue-700 hover:text-white transition duration-150 ${location.pathname === '/admin' ? 'bg-blue-900 text-white' : ''}`}
             >
@@ -53,8 +51,8 @@ const Sidebar = () => {
             </Link>
         )}
 
-        <button 
-          onClick={logoutHandler} 
+        <button
+          onClick={logoutHandler}
           className="w-full flex items-center px-6 py-4 text-blue-100 hover:bg-blue-700 hover:text-white transition duration-150 text-left"
         >
             <span className="mr-3 text-lg"><FiLogOut /></span>
