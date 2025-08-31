@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from '../api/axios';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/sidebar';
 import Header from '../components/Header';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FiFileText, FiBarChart2, FiSearch } from 'react-icons/fi';
