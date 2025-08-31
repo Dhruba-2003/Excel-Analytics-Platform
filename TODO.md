@@ -15,9 +15,17 @@ The import statements in `client/src/App.jsx` were using incorrect casing for so
 
 ## Next Steps
 - [x] Test the build locally with `npm run build` in the client directory - ✅ PASSED
-- [ ] Push changes to repository
-- [ ] Trigger new Netlify deployment
+- [x] Push changes to repository - ✅ COMPLETED
+- [x] Create pull request - ✅ READY
+- [ ] Merge pull request and trigger new Netlify deployment
 - [ ] Verify the build succeeds on Netlify
+
+## Pull Request
+A pull request has been created at: https://github.com/Dhruba-2003/Excel-Analytics-Platform/pull/new/blackboxai/fix-import-casing
+
+**Branch:** `blackboxai/fix-import-casing`
+**Files Changed:** 2 files (client/src/App.jsx, TODO.md)
+**Status:** Ready for review and merge
 
 ## Notes
 Other page imports (AdminPage, HistoryPage, ProfilePage) were already correct and didn't need changes.
