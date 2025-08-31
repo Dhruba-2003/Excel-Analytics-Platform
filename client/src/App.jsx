@@ -5,7 +5,7 @@ import RegisterPage from './pages/RegisterPage';
 import AdminPage from './pages/AdminPage';
 import HistoryPage from './pages/HistoryPage';
 import ProfilePage from './pages/ProfilePage';
-import UserEditPage from './pages/UserEditPage';
+import UserEditPage from './pages/userEditPage';
 
 function App() {
   return (

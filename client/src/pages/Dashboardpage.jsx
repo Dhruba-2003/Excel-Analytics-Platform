@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom'; // Import Link
+import { useParams, Link } from 'react-router-dom';
 import axios from '../api/axios';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import Sidebar from '../components/sidebar';
+import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Chart from '../components/chart';
 import ThreeDChart from '../components/ThreeDChart';
