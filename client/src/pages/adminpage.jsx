@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from '../api/axios';
 import Sidebar from '../components/sidebar';
 import Header from '../components/header';
-import { FiEdit } from 'react-icons/fi';
+import { FiEdit, FiExternalLink } from 'react-icons/fi';
 
 const AdminPage = () => {
   const [users, setUsers] = useState([]);
@@ -45,6 +45,7 @@ const AdminPage = () => {
                             <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase">Email</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase">Is Admin</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase">Edit</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase">Edit in Atlas</th>
                         </tr>
                     </thead>
                     <tbody className="bg-content-bg divide-y divide-gray-200">
@@ -63,6 +64,11 @@ const AdminPage = () => {
                                     <Link to={`/admin/user/${user._id}/edit`} className="text-primary hover:text-primary-hover">
                                         <FiEdit />
                                     </Link>
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap">
+                                    <a href={`https://cloud.mongodb.com/v2/689b106674d9477bcbb798f1#/metrics/replicaSet/689b122b09c59745d523ca47/explorer/test/users/find`} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-hover flex items-center">
+                                        <FiExternalLink className="mr-1" /> Edit in Atlas
+                                    </a>
                                 </td>
                             </tr>
                         ))}
