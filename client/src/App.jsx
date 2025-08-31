@@ -6,6 +6,8 @@ import AdminPage from './pages/adminpage';
 import HistoryPage from './pages/historypage';
 import ProfilePage from './pages/profilepage';
 import UserEditPage from './pages/usereditpage';
+import ForgotPasswordPage from './pages/forgotpasswordpage';
+import ResetPasswordPage from './pages/resetpasswordpage';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Route path="/dashboard/:fileId" element={<DashboardPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
       <Route path="/admin" element={<AdminPage />} />
       <Route path="/history" element={<HistoryPage />} />
       <Route path="/profile" element={<ProfilePage />} />
