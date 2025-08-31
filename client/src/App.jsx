@@ -2,10 +2,10 @@ import { Routes, Route } from 'react-router-dom';
 import DashboardPage from './pages/dashboardpage';
 import LoginPage from './pages/loginpage';
 import RegisterPage from './pages/registerpage';
-import AdminPage from './pages/AdminPage';
-import HistoryPage from './pages/HistoryPage';
-import ProfilePage from './pages/ProfilePage';
-import UserEditPage from './pages/userEditpage';
+import AdminPage from './pages/adminpage';
+import HistoryPage from './pages/historypage';
+import ProfilePage from './pages/profilepage';
+import UserEditPage from './pages/usereditpage';
 
 function App() {
   return (
