@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from '../api/axios';
-import Sidebar from '../components/sidebar';
+import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
+import { FiEdit } from 'react-icons/fi';
 
 const AdminPage = () => {
   const [users, setUsers] = useState([]);
@@ -12,25 +14,15 @@ const AdminPage = () => {
     const fetchUsers = async () => {
       try {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-        if (!userInfo || !userInfo.token) {
-            throw new Error('You must be logged in as an admin.');
-        }
-
-        const config = {
-          headers: {
-            Authorization: `Bearer ${userInfo.token}`,
-          },
-        };
-
+        const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         const { data } = await axios.get('/api/admin/users', config);
         setUsers(data);
       } catch (err) {
-        setError(err.response?.data?.message || 'Failed to fetch users. You may not have admin privileges.');
+        setError('Failed to fetch users. Not authorized.');
       } finally {
         setLoading(false);
       }
     };
-
     fetchUsers();
   }, []);
 
@@ -43,11 +35,7 @@ const AdminPage = () => {
           <div className="max-w-7xl mx-auto">
             <h1 className="text-3xl font-semibold text-text-primary">Admin Panel - User Management</h1>
             
-            {loading ? (
-              <p className="mt-4">Loading users...</p>
-            ) : error ? (
-              <p className="mt-4 text-red-500 bg-red-100 p-4 rounded-md">{error}</p>
-            ) : (
+            {loading ? <p className="mt-4">Loading users...</p> : error ? <p className="mt-4 text-red-500">{error}</p> : (
               <div className="mt-8 bg-content-bg rounded-xl shadow-md overflow-x-auto">
                  <table className="min-w-full text-sm divide-y divide-gray-200">
                     <thead className="bg-base-100">
@@ -56,6 +44,7 @@ const AdminPage = () => {
                             <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase">Name</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase">Email</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase">Is Admin</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase">Edit</th>
                         </tr>
                     </thead>
                     <tbody className="bg-content-bg divide-y divide-gray-200">
@@ -69,6 +58,11 @@ const AdminPage = () => {
                                         ? <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Yes</span>
                                         : <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">No</span>
                                     }
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap">
+                                    <Link to={`/admin/user/${user._id}/edit`} className="text-primary hover:text-primary-hover">
+                                        <FiEdit />
+                                    </Link>
                                 </td>
                             </tr>
                         ))}
