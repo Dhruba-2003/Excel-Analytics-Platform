@@ -3,8 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import axios from '../api/axios';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import Sidebar from '../components/Sidebar';
-import Header from '../components/Header';
+import Sidebar from '../components/sidebar';
+import Header from '../components/header';
 import Chart from '../components/chart';
 import ThreeDChart from '../components/ThreeDChart';
 
