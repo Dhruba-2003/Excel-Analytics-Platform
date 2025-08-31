@@ -10,6 +10,11 @@
 
 ## Files to Edit:
 - [x] client/src/App.jsx
+- [x] client/src/components/Sidebar.jsx (renamed to sidebar.jsx)
+- [x] client/src/pages/ProfilePage.jsx
+- [x] client/src/pages/HistoryPage.jsx
+- [x] client/src/pages/Dashboardpage.jsx
+- [x] client/src/pages/AdminPage.jsx
 
 ## Issue Details:
 - Netlify build fails due to case sensitivity (Linux vs Windows)
