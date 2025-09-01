@@ -73,19 +73,38 @@ export const saveAnalysis = async (req, res) => {
   }
 };
 
-// This function now also handles searching based on a keyword
 export const getUserFiles = async (req, res) => {
     const keyword = req.query.search ? {
         fileName: {
             $regex: req.query.search,
-            $options: 'i' // case-insensitive search
+            $options: 'i'
         }
     } : {};
-
   try {
     const files = await File.find({ user: req.user._id, ...keyword }).sort({ createdAt: -1 });
     res.json(files);
   } catch (error) {
     res.status(500).json({ message: 'Server Error' });
   }
+};
+
+export const deleteFiles = async (req, res) => {
+    try {
+        const { ids } = req.body;
+        if (!ids || ids.length === 0) {
+            return res.status(400).json({ message: 'No file IDs provided.' });
+        }
+        const result = await File.deleteMany({
+            _id: { $in: ids },
+            user: req.user._id
+        });
+
+        if (result.deletedCount === 0) {
+            return res.status(404).json({ message: 'No matching files found to delete.' });
+        }
+
+        res.json({ message: 'Files deleted successfully.' });
+    } catch (error) {
+        res.status(500).json({ message: 'Server Error' });
+    }
 };
