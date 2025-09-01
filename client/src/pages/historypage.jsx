@@ -118,7 +118,7 @@ const HistoryPage = () => {
                         className="flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 disabled:bg-red-300 transition"
                     >
                         <FiTrash2 className="mr-2"/>
-                        Delete Selected ({selectedFiles.length})
+                        Delete All ({selectedFiles.length})
                     </button>
                 </div>
                 <div className="bg-content-bg rounded-b-xl shadow-md">
