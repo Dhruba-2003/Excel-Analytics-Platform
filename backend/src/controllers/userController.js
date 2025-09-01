@@ -90,8 +90,6 @@ export const updateUserProfile = async (req, res) => {
       token: generateToken(updatedUser._id), // Send back a new token
     };
 
-    localStorage.setItem('userInfo', JSON.stringify(userInfo));
-
     res.json(userInfo);
   } else {
     res.status(404).json({ message: 'User not found' });
