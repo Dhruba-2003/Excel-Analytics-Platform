@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../api/axios';
-import Sidebar from '../components/sidebar';
-import Header from '../components/header';
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
 import { FiEdit, FiExternalLink } from 'react-icons/fi';
 
 const AdminPage = () => {
