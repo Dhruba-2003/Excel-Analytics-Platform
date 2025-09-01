@@ -1,4 +1,3 @@
-// File: backend/src/models/userModel.js
 import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema(
@@ -13,11 +12,7 @@ const userSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-// THIS IS THE FIX:
-// This line checks if the 'User' model already exists.
-// If it does, it uses the existing model.
-// If not, it creates a new one.
-// This prevents the OverwriteModelError.
+
 const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 export default User;

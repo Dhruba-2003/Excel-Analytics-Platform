@@ -65,12 +65,12 @@ const RegisterPage = () => {
               disabled={loading}
             />
           </div>
-          {/* UPDATED: Password input with visibility toggle */}
+
           <div>
             <label className="block text-sm font-medium text-text-primary">Password</label>
             <div className="relative mt-1">
               <input 
-                type={showPassword ? 'text' : 'password'} // Change type based on state
+                type={showPassword ? 'text' : 'password'}
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
                 className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" 

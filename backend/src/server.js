@@ -10,12 +10,10 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5001;
 
-// --- CORS Configuration ---
-// This is the fix. It tells the server to allow requests
-// specifically from your live frontend URL.
+
 const corsOptions = {
   origin: process.env.FRONTEND_URL || 'https://excel-sathi.netlify.app',
-  optionsSuccessStatus: 200 // For legacy browser support
+  optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
 
