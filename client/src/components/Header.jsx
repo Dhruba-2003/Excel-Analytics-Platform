@@ -1,34 +1,12 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React from 'react';
 
 const Header = () => {
-    const [userInfo, setUserInfo] = useState(null);
+  return (
+    <header className="flex items-center justify-between p-4 bg-blue-600 text-white">
+      <h1 className="text-xl font-bold">Excel Sathi</h1>
+      {/* Add more header content here if needed */}
+    </header>
+  );
+};
 
-    useEffect(() => {
-        const storedUserInfo = localStorage.getItem('userInfo');
-        if (storedUserInfo) {
-            setUserInfo(JSON.parse(storedUserInfo));
-        }
-    }, []);
-
-    return (
-      <header className="flex items-center justify-between p-4 bg-content-bg border-b shadow-sm z-10">
-        <h1 className="text-xl font-semibold text-text-primary">Dashboard</h1>
-        
-        {userInfo ? (
-          <Link to="/profile" className="flex items-center space-x-3 hover:opacity-80 transition">
-            <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-600">
-              {userInfo.name.charAt(0).toUpperCase()}
-            </div>
-            <span className="text-sm font-medium text-text-secondary">{userInfo.name}</span>
-          </Link>
-        ) : (
-          <Link to="/login" className="flex items-center space-x-3 hover:opacity-80 transition">
-            <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
-            <span className="text-sm font-medium text-text-secondary">User Profile</span>
-          </Link>
-        )}
-      </header>
-    );
-  };
 export default Header;
