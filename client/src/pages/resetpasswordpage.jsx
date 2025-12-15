@@ -26,24 +26,12 @@ const ResetPasswordPage = () => {
     setIsLoading(true);
     
     try {
-      const response = await fetch(`http://localhost:5000/api/users/reset-password/${token}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ password }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        toast.success('Password reset successfully');
-        navigate('/login');
-      } else {
-        toast.error(data.message || 'Failed to reset password');
-      }
+      // Use axios so baseURL and interceptor are applied
+      const { data } = await axios.post(`/api/users/reset-password/${token}`, { password });
+      toast.success(data.message || 'Password reset successfully');
+      navigate('/login');
     } catch (error) {
-      toast.error('An error occurred. Please try again.');
+      toast.error(error.response?.data?.message || 'An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
     }
