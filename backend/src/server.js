@@ -20,6 +20,20 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
+const getMongoHost = (uri) => {
+  if (!uri) return 'MONGO_URI not set';
+  try {
+    const m = uri.match(/@([^/]+)/);
+    if (m && m[1]) return m[1];
+    const m2 = uri.match(/\/\/([^/]+)/);
+    return m2 && m2[1] ? m2[1] : 'unknown-host';
+  } catch (e) {
+    return 'parse-error';
+  }
+};
+
+console.log('Using MONGO_URI host:', getMongoHost(process.env.MONGO_URI));
+
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI);
